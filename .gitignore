@@ -1,28 +1,32 @@
-# Xcode
-#
-build/
-*.pbxuser
-!default.pbxuser
-*.mode1v3
-!default.mode1v3
-*.mode2v3
-!default.mode2v3
-*.perspectivev3
-!default.perspectivev3
-xcuserdata
-*.xccheckout
-*.moved-aside
-DerivedData
-*.hmap
-*.ipa
-*.xcuserstate
 
-# CocoaPods
-#
-# We recommend against adding the Pods directory to your .gitignore. However
-# you should judge for yourself, the pros and cons are mentioned at:
-# http://guides.cocoapods.org/using/using-cocoapods.html#should-i-ignore-the-pods-directory-in-source-control
-#
-# Pods/
+# NPM Modules
+node_modules
 
-node_modules/
+# Log Files
+logs
+
+# OS generated files #
+.DS_Store
+.DS_Store?
+Thumbs.db
+
+# Generated Files.
+*.ser
+*~
+*.bak
+*.off
+*.old
+
+# Building
+target
+build
+null
+tmp*
+dist
+test-output
+
+# IntelliJ
+*.iml
+*.ipr
+*.iws
+.idea
