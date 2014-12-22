@@ -35,16 +35,15 @@ function sendVerification(user, res, isReset, cb) {
     }
     user.save(function (err) {
         if (err) return sendRes(res, err, 500, code);
-        console.log((isReset?"Your new temporary password is: ":"Your verification code: ")+token+"\nNote:This will be expired in 24 hours.\nBy "+config.appName);
-        //sendSms(user.mobileNumber, (isReset?"Your new temporary password is: ":"Your verification code: ")+token+"\nNote:This will be expired in 24 hours.\nBy "+config.appName, function (err) {
-        //    if (err) {
-        //        user.remove();
-        //        return sendRes(res, err, 500);
-        //    }
+        sendSms(user.mobileNumber, (isReset?"Your new temporary password is: ":"Your verification code: ")+token+"\nNote:This will be expired in 24 hours.\nBy "+config.appName, function (err) {
+           if (err) {
+               user.remove();
+               return sendRes(res, err, 500);
+           }
             if (typeof cb === "function")
                 cb();
             else sendRes(res, isReset?'SMS has been sent to ' + user.mobileNumber + ' with your temporary password.':'SMS has been sent to ' + user.mobileNumber + ' for verify Account with verification code ');
-        //});
+        });
 
     })
 }
