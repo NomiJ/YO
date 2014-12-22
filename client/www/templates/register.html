@@ -1,0 +1,44 @@
+<ion-view hide-back-button="true">
+    <ion-content>
+        <div style="margin-bottom: 40px"></div>
+        <h2 class="text-center">Register</h2>
+        <p class="text-center">
+            Don't have an Account, Just Create it.
+        </p>
+        <form name="register" class="padding" ng-submit="submit(register)">
+
+            <div class="list padding-left padding-right">
+                <label class="item item-input">
+                    <input type="text" name="username" minlength="4" maxlength="20" required placeholder="Username" ng-model="user.username">
+                </label>
+                <p class="error" ng-if="!register.username.$error.minlength&&!register.username.$error.maxlength&&register.username.$invalid&&register.username.$dirty">Username is required.</p>
+                <p class="error" ng-if="register.username.$error.minlength&&register.username.$dirty">Username is too short.</p>
+                <p class="error" ng-if="register.username.$error.maxlength&&register.username.$dirty">Username is too long.</p>
+            </div>
+            <div class="list padding-left padding-right">
+                <label class="item item-input">
+                    <input type="tel" name="mobile" ng-pattern="/^[0-9]+$/" minlength="10" maxlength="12" required placeholder="Mobile Number" ng-model="user.mobileNumber">
+                </label>
+                <p class="error" ng-if="!register.mobile.$error.pattern&&!register.mobile.$error.minlength&&!register.mobile.$error.maxlength&&register.mobile.$invalid&&register.mobile.$dirty">Mobile number is required.</p>
+                <p class="error" ng-if="register.mobile.$error.pattern&&register.mobile.$dirty">Mobile number must be number.</p>
+                <p class="error" ng-if="!register.mobile.$error.pattern&&register.mobile.$error.minlength&&register.mobile.$dirty">Mobile number is too short.</p>
+                <p class="error" ng-if="!register.mobile.$error.pattern&&register.mobile.$error.maxlength&&register.mobile.$dirty">Mobile number is too long.</p>
+            </div>
+            <div class="list padding-left padding-right">
+                <label class="item item-input">
+                    <input type="password" name="password" minlength="4" maxlength="20" required placeholder="Password" ng-model="user.password">
+                </label>
+                <p class="error" ng-if="!register.password.$error.minlength&&!register.password.$error.maxlength&&register.password.$invalid&&register.password.$dirty">Password is required.</p>
+                <p class="error" ng-if="register.password.$error.minlength&&register.password.$dirty">Password is too short.</p>
+                <p class="error" ng-if="register.password.$error.maxlength&&register.password.$dirty">Password is too long.</p>
+            </div>
+            <div class="list padding-left padding-right">
+                <div class="error" ng-if="errorMsg" ng-bind="errorMsg"></div>
+                <button type="submit" class="button button-positive button-block">Create an Account</button>
+            </div>
+            <p>
+                <a ui-sref="app.login" class="button button-block button-clear button-dark">If you are already registered?</a>
+            </p>
+        </form>
+    </ion-content>
+</ion-view>
