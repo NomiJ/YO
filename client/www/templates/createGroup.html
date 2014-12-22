@@ -1,0 +1,14 @@
+<ion-view>
+    <ion-content>
+        <ion-list>
+            <form ng-submit="submit()">
+                <ion-item class="item-input">
+                    <input class="inline" type="text" placeholder="Enter Group Name" ng-model="group.name"/>
+                    <button type="submit" class="button button-icon icon ion ion-plus-circled button-clear button-dark inline"></button>
+                </ion-item>
+            </form>
+            <ion-checkbox ng-if="friends.length" ng-model="f.checked" ng-repeat="f in friends | orderBy:'username'">{{f.username}}</ion-checkbox>
+            <p ng-if="!friends.length" class="text-center assertive padding">You have no any friends.</p>
+        </ion-list>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,29 @@
+<ion-view  hide-back-button="true">
+    <ion-content>
+        <ion-list>
+            <ion-item ui-sref="app.friends">
+                <h2>Friends</h2>
+            </ion-item>
+            <ion-item ui-sref="app.createGroup">
+                <h2>Create Group</h2>
+            </ion-item>
+            <ion-item ng-click="importContacts()">
+                <h2>Import Contacts</h2>
+            </ion-item>
+            <ion-item>
+                <h2>Invite a Friend</h2>
+                <ion-option-button class="button-balanced">Mail</ion-option-button>
+                <ion-option-button class="button-energized">SMS</ion-option-button>
+            </ion-item>
+            <form ng-submit="addFriend()">
+            <ion-item class="item-input">
+                <input class="inline" type="text" ng-model="$parent.$parent.username" placeholder="Enter Username"/>
+                <button type="submit" class="button button-icon icon ion ion-plus-circled button-clear button-dark inline"></button>
+            </ion-item>
+            </form>
+            <ion-item ng-click="logout()">
+                <h2>Logout</h2>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

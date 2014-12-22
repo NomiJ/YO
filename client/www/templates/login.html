@@ -1,0 +1,41 @@
+<ion-view hide-back-button="true">
+    <ion-content>
+        <div style="margin-bottom: 40px"></div>
+        <h2 class="text-center">Login</h2>
+        <p class="text-center">
+            Let's start by Login to App
+        </p>
+        <form name="login" class="padding" ng-submit="submit(login)">
+            <p class="success padding text-center" ng-if="success">{{success}}</p>
+            <div class="list padding-left padding-right">
+                <label class="item item-input">
+                    <input type="text" name="username" minlength="4" maxlength="20" required placeholder="Enter Username" ng-model="user.username">
+                </label>
+                <p class="error" ng-if="!login.username.$error.minlength&&!login.username.$error.maxlength&&login.username.$invalid&&login.username.$dirty">Username is required.</p>
+                <p class="error" ng-if="login.username.$error.minlength&&login.username.$dirty">Username is too short.</p>
+                <p class="error" ng-if="login.username.$error.maxlength&&login.username.$dirty">Username is too long.</p>
+            </div>
+            <div class="list padding-left padding-right">
+                <label class="item item-input">
+                    <input type="password" name="password" minlength="4" maxlength="20" required placeholder="Password" ng-model="user.password">
+                </label>
+
+                <p class="error" ng-if="!login.password.$error.minlength&&!login.password.$error.maxlength&&login.password.$invalid&&login.password.$dirty">Password is required.</p>
+                <p class="error" ng-if="login.password.$error.minlength&&login.password.$dirty">Password is too short.</p>
+                <p class="error" ng-if="login.password.$error.maxlength&&login.password.$dirty">Password is too long.</p>
+            </div>
+            <div class="padding-left padding-right">
+                <div class="error" ng-if="errorMsg" ng-bind="errorMsg"></div>
+                <button type="submit" class="button button-positive button-block">Login</button>
+            </div>
+            <div class="padding-left padding-right" ng-if="verifyErr">
+                <button ui-sref="app.verify" class="button button-clear button-block button-dark">Or verify your Account.</button>
+            </div>
+            <br/>
+            <p>
+                <a style="float: left;" ui-sref="app.register" class="button button-clear button-dark">Create Account</a>
+                <a style="float: right;" ui-sref="app.forgotPassword" class="button button-clear button-dark">Forgot Password</a>
+            </p>
+        </form>
+    </ion-content>
+</ion-view>

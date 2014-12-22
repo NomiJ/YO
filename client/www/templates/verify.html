@@ -1,0 +1,31 @@
+<ion-view>
+    <ion-content>
+        <div style="margin-bottom: 40px"></div>
+        <h2 class="text-center">Verify</h2>
+        <p class="text-center">
+            Enter code to verify.
+        </p>
+        <form name="verify" class="list list-inset padding" ng-submit="submit(verify)">
+            <p class="success padding text-center" ng-if="success">{{success}}</p>
+            <div class="list padding-left padding-right">
+                <label class="item item-input">
+                    <input type="text" name="code" minlength="4" maxlength="20" required placeholder="Enter Code" ng-model="user.code">
+                </label>
+                <p class="error" ng-if="!verify.code.$error.minlength&&!verify.code.$error.maxlength&&verify.code.$invalid&&verify.code.$dirty">Code is required.</p>
+                <p class="error" ng-if="verify.code.$error.minlength&&verify.code.$dirty">Code is too short.</p>
+                <p class="error" ng-if="verify.code.$error.maxlength&&verify.code.$dirty">Code is too long.</p>
+            </div>
+            <div class="list padding-left padding-right">
+                <div class="error" ng-if="errorMsg" ng-bind="errorMsg"></div>
+                <div class="row">
+                    <div class="col">
+                        <button type="submit" class="button button-positive button-block">Verify</button>
+                    </div>
+                    <div class="col">
+                        <button class="button button-stable button-block" ng-click="resendCode()">Resend Code</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,5 @@
+{
+  "name": "YO-ionic",
+  "app_id": "",
+  "watchPatterns": ["www/**/*", "!www/js/**/*", "!www/lib/ionic/**/*"]
+}
